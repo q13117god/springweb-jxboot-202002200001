@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: springweb-jxboot-202002200001
+  namespace: jx-production
+spec:
+  gateways:
+  - jx-gateway.istio-system.svc.cluster.local
+  - mesh
+  hosts:
+  - springweb-jxboot-202002200001.store.aws.z8s.io
+  http:
+  - route:
+    - destination:
+        host: springweb-jxboot-202002200001.jx-production.svc.cluster.local
+        port:
+          number: 80
+      weight: 50
+    - destination:
+        host: springweb-jxboot-202002200001.jx-staging.svc.cluster.local
+        port:
+          number: 80
+      weight: 50

@@ -24,7 +24,7 @@ hpa:
 # Canary deployments
 # If enabled, Istio and Flagger need to be installed in the cluster
 canary:
-  enabled: false
+  enabled: true
   progressDeadlineSeconds: 60
   canaryAnalysis:
     interval: "1m"
@@ -41,7 +41,8 @@ canary:
         interval: "1m"
   # The host is using Istio Gateway and is currently not auto-generated
   # Please overwrite the `canary.host` in `values.yaml` in each environment repository (e.g., staging, production)
-  host: acme.com
+  # host: acme.com
+  host: springweb-canary.store.aws.z8s.io
 
 service:
   name: springweb-jxboot-202002200001
